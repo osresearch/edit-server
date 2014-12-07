@@ -7,7 +7,7 @@ wrappers for MacVim.
 
 * Install TextAid for Chrome: https://chrome.google.com/webstore/detail/textaid/ppoadiihggafnhokfkpphojggcdigllp
 * Install MacVim: https://github.com/b4winckler/macvim/releases
-* Start the edit server: ./edit-server &
+* Start the edit server: `./edit-server/edit-server &`
 * Configure the TextAid extension:
  * URL is: http://127.0.0.1:8888/
  * No username/password
