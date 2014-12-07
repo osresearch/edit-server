@@ -6,6 +6,8 @@
 # NOTE:  If you use this on a shared system, you should configure TextAid
 # with a username & password and make sure that the saved authorization
 # config file stays secret!
+#
+# Forked from http://opencoder.net/edit-server
 
 use strict;
 use warnings;
@@ -14,13 +16,14 @@ use Socket;
 use IO::Select;
 use File::Temp;
 use Getopt::Long;
+use FindBin;
 
 # If you don't want to require authentication, set $REQUIRE_AUTH to 0.
 # When it is set to 1, the first authenticated request that is received
 # will be saved to the $SAVE_AUTH_FILE file.  All subsequent requests
 # are compared to that value.  To change your password, just remove the
 # file and make a new edit-server request using the new auth info.
-our $REQUIRE_AUTH = 1;
+our $REQUIRE_AUTH = 0;
 our $SAVE_AUTH_FILE = "$ENV{HOME}/.edit-server-auth";
 
 # Only accept requests from something that claims to be a chrome-extension.
@@ -34,7 +37,10 @@ our $LOCALHOST_ONLY = 1;
 # Configure the program that you want to run to handle the requests.
 # This editor invocation must NOT return control to this script until
 # you are done editing.
-our $EDITOR_CMD = '/usr/bin/rgvim -f "%s"';
+# This will invoke mvim (the MacVim wrapper) that is in the same
+# directory as the edit-server
+our $EDITOR_CMD = "$FindBin::Bin/mvim -f '%s'";
+#our $EDITOR_CMD = '/usr/bin/rgvim -f "%s"';
 #our $EDITOR_CMD = '/usr/bin/emacsclient -c "%s"';
 
 # The settings to configure the temp dir and how soon old files are removed.
