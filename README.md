@@ -9,9 +9,9 @@ wrappers for MacVim.
 * Install MacVim: https://github.com/b4winckler/macvim/releases
 * Start the edit server: ./edit-server &
 * Configure the TextAid extension:
-** URL is: http://127.0.0.1:8888/
-** No username/password
-** Configure a key mapping if you like. I use Control-Shift-V
+ * URL is: http://127.0.0.1:8888/
+ * No username/password
+ * Configure a key mapping if you like. I use Control-Shift-Z
 
 Enjoy!
 
